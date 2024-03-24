@@ -10,7 +10,6 @@ public class Urun {
     private Marka marka;
     private int depolama;
     private double ekranBoyutu;
-
     private int ram;
 
 

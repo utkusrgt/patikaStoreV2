@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+
 public class Magaza {
 
     private List<Marka> markalar;
@@ -58,7 +59,7 @@ public class Magaza {
     public void addingMobile() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please enter the brand you wish to add by ID: ");
+        System.out.println("Please enter the brand you wish to add by ID: ");
         markaListele();
         int markaId = scanner.nextInt();
         scanner.nextLine();
@@ -72,7 +73,6 @@ public class Magaza {
             int stokMiktari = scanner.nextInt();
             int depolama, kamera, ram, battery;
             double ekranBoyutu, indirimOrani;
-            String color;
             System.out.print("İndirim Oranı ");
             indirimOrani = scanner.nextInt();
             System.out.print("Depolama (GB): ");
@@ -86,7 +86,7 @@ public class Magaza {
             System.out.print("Ram: ");
             ram = scanner.nextInt();
             System.out.print("Color: ");
-            color = scanner.nextLine();
+            String color = scanner.nextLine();
             scanner.nextLine();
             MobilePhone mobilePhone = new MobilePhone(birimFiyat, indirimOrani, stokMiktari, urunAdi, marka, depolama, ekranBoyutu, ram, battery, color, kamera);
             addMobilePhone(mobilePhone);
@@ -116,7 +116,7 @@ public class Magaza {
     public void addingNoteBook() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please enter the brand you wish to add by ID: ");
+        System.out.println("Please enter the brand you wish to add by ID: ");
         markaListele();
         int markaId = scanner.nextInt();
         scanner.nextLine();
@@ -167,11 +167,15 @@ public class Magaza {
 
 
     }
+
+
+
+
     public  void urunListele(){
 
         System.out.println("Notebook Listesi");
         System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.println("| ID | Ürün Adı                      | Fiyat     | PatikaStore.Marka     | Depolama  | Ekran     | RAM         |");
+        System.out.println("| ID | Ürün Adı                      | Fiyat     | Marka     | Depolama  | Ekran     | RAM         |");
         System.out.println("----------------------------------------------------------------------------------------------------");
         for (Urun urun : noteBooks) {
             System.out.format("| %-2d | %-30s | %-9.1f TL | %-9s | %-10d | %-6.1f | %-11d |\n", urun.getId(), urun.getUrunAdi(), urun.getBirimFiyat(), urun.getMarka().getName(), urun.getDepolama(), urun.getEkranBoyutu(), urun.getRam());
@@ -179,38 +183,50 @@ public class Magaza {
         System.out.println("----------------------------------------------------------------------------------------------------");
         System.out.println("\nCep Telefonu Listesi");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
-        System.out.println("| ID | Ürün Adı                      | Fiyat     | PatikaStore.Marka     | Depolama  | Ekran     | Kamera    | Pil       | RAM       | Renk      |");
+        System.out.println("| ID | Ürün Adı                      | Fiyat     | Marka     | Depolama  | Ekran     | RAM    | Pil       | Kamera       | Renk      |");
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
-        for (MobilePhone mobilePhone : mobilePhones) {
-            System.out.format("| %-2d | %-30s | %-9.1f TL | %-9s | %-10d | %-6.1f | %-9d | %-9.1f | %-9d | %-9s |\n", mobilePhone.getId(), mobilePhone.getUrunAdi(), mobilePhone.getBirimFiyat(), mobilePhone.getMarka().getName(), mobilePhone.getDepolama(), mobilePhone.getEkranBoyutu(), mobilePhone.getRam());
-        }
+
+            for (MobilePhone mobilePhone : mobilePhones) {
+                System.out.format("| %-2d | %-30s | %-8.1f TL | %-8s | %-8d | %-7.1f | %-3d | %-8d |%-8d | %-8s \n", mobilePhone.getId(), mobilePhone.getUrunAdi(), mobilePhone.getBirimFiyat(), mobilePhone.getMarka().getName(), mobilePhone.getDepolama(), mobilePhone.getEkranBoyutu(), mobilePhone.getRam(),mobilePhone.getBattery(), mobilePhone.getKamera(), mobilePhone.getColor());
+            }
+
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------");
 
     }
 
-    public void urunGor(){
-        System.out.println("Notebook Listesi");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.println("| ID | Ürün Adı                      | Fiyat     | PatikaStore.Marka     | Depolama  | Ekran     | RAM         |");
-        System.out.println("----------------------------------------------------------------------------------------------------");
+//    public void searchByID(){
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Please enter the ID :");
+//        int PID = scanner.nextInt();
+//        if(PID = )
+//    }
+    public void  urunGöster(int pid){
+
+        for(Urun urun : mobilePhones){
+            if(pid == urun.getId() ){
+                System.out.println("ID          Marka           Name            Price" );
+                System.out.println("-------------------------------------------------" );
+                System.out.println(urun.getId()+ "    |     " + urun.getMarka().getName() +"    |     " + urun.getUrunAdi() + "     |     " + urun.getBirimFiyat());
+                System.out.println("-------------------------------------------------" );
+
+            }
+        }
         for(Urun urun : noteBooks){
-            System.out.println(urun.getId() +  " " + urun.getUrunAdi() + "                      | " + urun.getBirimFiyat() + "      " + urun.getMarka() + "     " + urun.getDepolama() + "      " + urun.getEkranBoyutu() + "       " + urun.getRam());
+            if(pid == urun.getId() ){
+                System.out.println("ID          Marka           Name            Price" );
+                System.out.println("-------------------------------------------------" );
+                System.out.println(urun.getId()+ "    |     " + urun.getMarka().getName() +"    |     " + urun.getUrunAdi() + "     |     " + urun.getBirimFiyat());
+                System.out.println("-------------------------------------------------" );
+
+            }
         }
-        System.out.println("Telefon Listesi");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-        System.out.println("| ID | Ürün Adı                      | Fiyat     | PatikaStore.Marka     | Depolama  | Ekran     | RAM         | Kamera    | Pil        | Renk      |");
-        System.out.println("----------------------------------------------------------------------------------------------------");
-        for(MobilePhone mobilePhone : mobilePhones){
-            System.out.println(mobilePhone.getId() +  " " + mobilePhone.getUrunAdi() + "                      | " + mobilePhone.getBirimFiyat()
-                    + "      " + mobilePhone.getMarka()
-                    + "     " + mobilePhone.getDepolama()
-                    + "      " + mobilePhone.getEkranBoyutu()
-                    + "       " + mobilePhone.getRam()
-                    + "      " + mobilePhone.getKamera()
-                    + "      " + mobilePhone.getBattery()
-                    + "      " + mobilePhone.getColor());
-        }
+
+
+
+
     }
+
+
 
     public  void markaListele(){
         System.out.println("| ID | PatikaStore.Marka Adı  |");
