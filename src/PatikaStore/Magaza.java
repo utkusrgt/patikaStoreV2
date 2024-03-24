@@ -59,7 +59,7 @@ public class Magaza {
     public void addingMobile() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the brand you wish to add by ID: ");
+        System.out.println("Eklemek istediğiniz ürünün marka ID'sini giriniz : ");
         markaListele();
         int markaId = scanner.nextInt();
         scanner.nextLine();
@@ -85,7 +85,7 @@ public class Magaza {
             battery = scanner.nextInt();
             System.out.print("Ram: ");
             ram = scanner.nextInt();
-            System.out.print("Color: ");
+            System.out.print("Renk: ");
             String color = scanner.nextLine();
             scanner.nextLine();
             MobilePhone mobilePhone = new MobilePhone(birimFiyat, indirimOrani, stokMiktari, urunAdi, marka, depolama, ekranBoyutu, ram, battery, color, kamera);
@@ -116,7 +116,7 @@ public class Magaza {
     public void addingNoteBook() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the brand you wish to add by ID: ");
+        System.out.println("Eklemek istediğiniz ürünün marka ID'sini giriniz : ");
         markaListele();
         int markaId = scanner.nextInt();
         scanner.nextLine();
@@ -204,7 +204,7 @@ public class Magaza {
 
         for(Urun urun : mobilePhones){
             if(pid == urun.getId() ){
-                System.out.println("ID          Marka           Name            Price" );
+                System.out.println("ID          Marka           İsim            Fiyat" );
                 System.out.println("-------------------------------------------------" );
                 System.out.println(urun.getId()+ "    |     " + urun.getMarka().getName() +"    |     " + urun.getUrunAdi() + "     |     " + urun.getBirimFiyat());
                 System.out.println("-------------------------------------------------" );
@@ -213,7 +213,7 @@ public class Magaza {
         }
         for(Urun urun : noteBooks){
             if(pid == urun.getId() ){
-                System.out.println("ID          Marka           Name            Price" );
+                System.out.println("ID          Marka           İsim            Fiyat" );
                 System.out.println("-------------------------------------------------" );
                 System.out.println(urun.getId()+ "    |     " + urun.getMarka().getName() +"    |     " + urun.getUrunAdi() + "     |     " + urun.getBirimFiyat());
                 System.out.println("-------------------------------------------------" );

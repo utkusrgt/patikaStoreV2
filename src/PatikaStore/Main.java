@@ -15,7 +15,7 @@ public class Main {
             System.out.println("3. Ürünleri Listele");
             System.out.println("4. Ürün Sil");
             System.out.println("5. PatikaStore.Marka Listele");
-            System.out.println("6. Show product by ID");
+            System.out.println("6. ID ile ürün göster");
             System.out.println("7. Çıkış");
             System.out.print("Seçiminiz: ");
             int secim = scanner.nextInt();
@@ -45,7 +45,7 @@ public class Main {
                 break;
 
             case 6:
-                System.out.println("Please enter the ID of the product you wish to list");
+                System.out.println("Görmek istediğiniz ürünün ID numarasını yazın");
                 int showID = scanner.nextInt();
                 magaza.urunGöster(showID);
                 break;
